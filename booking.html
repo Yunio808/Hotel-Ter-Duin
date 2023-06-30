@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="StyleSheet.css">
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+  // Retrieve the message and status from the URL query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const message = urlParams.get('message');
+  const status = urlParams.get('status');
+
+  // Display the message in an alert dialog
+  if (message) {
+    if (status === 'success') {
+      alert(message);
+    } else {
+      alert('Error: ' + message);
+    }
+  }
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <header>
+        <div class="container">
+            <h1>Welcome to Hotel Ter Duin</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Book now!</h2>
+      <p>Here you can book a bedroom.</p>
+
+      <div class="contact-info">
+        <!-- Contact information here -->
+      </div>
+
+      <div class="contact-form">
+        <form action="booking.php" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="date" name="startDate" required>
+        <input type="date" name="endDate" required>
+        <select name="bedroomType" required>
+        <option value="" disabled selected>Select Bedroom Type</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
+        <option value="Suite">Suite</option>
+          </select>
+          <button type="submit">Book Room</button>
+            <p id="booking-message"></p>
+        </form>
+      </div>
+
+
+ <script>
+  // Handle form submission
+  $(document).ready(function () {
+    $('#booking-form').submit(function (event) {
+      event.preventDefault();
+
+      var formData = $(this).serialize();
+
+      // Send an AJAX request
+      $.ajax({
+        type: 'POST',
+        url: 'booking.php',
+        data: formData,
+        success: function (response) {
+          var message = response.message;
+
+          // Update the content dynamically
+          $('#booking-message').text(message);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error:', error);
+        }
+      });
+    });
+  });
+</script>
+ 
+    </div>
+  </section>
+
+  <!-- Rest of the content -->
+
+</body>
+</html>

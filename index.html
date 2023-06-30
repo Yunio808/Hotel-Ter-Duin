@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Ter Duin</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+
+    <script>
+  // Retrieve the message and status from the URL query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const message = urlParams.get('message');
+  const status = urlParams.get('status');
+
+  // Display the message in an alert dialog
+  if (message) {
+    if (status === 'success') {
+      alert(message);
+    } else {
+      alert('Error: ' + message);
+    }
+  }
+</script>
+
+    <header>
+        <div class="container">
+            <h1>Welcome to Hotel Ter Duin</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="booking.html">booking</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="overlay">
+            <h2>Escape to Tranquility</h2>
+            <p>Experience luxury and comfort at Hotel Ter Duin</p>
+        </div>
+    </section>
+
+    <section id="rooms">
+        <h2>Our Rooms</h2>
+        <div class="room">
+            <img src="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-jumbo.jpg?quality=75&auto=webp" alt="Room 1">
+            <h3>Hotel Room</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="booking.html" class="btn">
+                <btn>Book Now</btn>
+            </a>
+
+        </div>
+        <div class="room">
+            <img src="https://cdn.decoist.com/wp-content/uploads/2012/10/breathtaking-master-bedroom-design-with-beautiful-lighting.jpg" alt="Room 2">
+            <h3>Premium Suite</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="booking.html" class="btn">
+                <btn>Book Now</btn>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have any questions? Get in touch with us.</p>
+
+            <div class="contact-info">
+                <i class="fa fa-map-marker"></i>
+                <span>123 Boulevard, Noordwijk, Netherlands</span>
+            </div>
+
+            <div class="contact-info">
+                <i class="fa fa-envelope"></i>
+                <span>info@example.com</span>
+            </div>
+
+            <div class="contact-info">
+                <i class="fa fa-phone"></i>
+                <span>+1234567890</span>
+            </div>
+
+            <div class="contact-form">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Hotel Ter Duin. All rights reserved.</p>
+    </footer>
+</body>
+</html>
