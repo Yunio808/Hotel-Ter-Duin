@@ -60,35 +60,6 @@
             <p id="booking-message"></p>
         </form>
       </div>
-
-
- <script>
-  // Handle form submission
-  $(document).ready(function () {
-    $('#booking-form').submit(function (event) {
-      event.preventDefault();
-
-      var formData = $(this).serialize();
-
-      // Send an AJAX request
-      $.ajax({
-        type: 'POST',
-        url: 'booking.php',
-        data: formData,
-        success: function (response) {
-          var message = response.message;
-
-          // Update the content dynamically
-          $('#booking-message').text(message);
-        },
-        error: function (xhr, status, error) {
-          console.error('Error:', error);
-        }
-      });
-    });
-  });
-</script>
- 
     </div>
   </section>
 
